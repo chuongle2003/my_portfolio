@@ -1,0 +1,28 @@
+export const userData = {
+  githubUser: "chuongle2003",
+  devUsername: "chuongle2003",
+  github: "https://github.com/chuongle2003",
+  facebook: "https://www.facebook.com/chuongle.2003",
+  instagram: "https://www.instagram.com/dgrberrrh/",
+  resume:
+    "https://drive.google.com/file/d/1gJIFvQtmPjsIef0Bmmi9V-J32QTXqojz/view?usp=sharing",
+  linkedIn: "",
+  twitter: "",
+  stackOverflow: "",
+  leetcode: "",
+  skills: [
+    "React",
+    "NextJS",
+    "Express",
+    "MySql",
+    "MongoDB",
+    "Postgres",
+    "Docker",
+    "Git",
+    "Typescript",
+    "TailwindCSS",
+    "NodeJS",
+    "Postman",
+  ],
+  timezone: "+7",
+};
