@@ -49,7 +49,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const profile = await getGitProfile();
 
   return {
-    title: `${profile.name}`,
+    title: `Github Profile ${profile.name}`,
     description: profile.description,
   };
 }
