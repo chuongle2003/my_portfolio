@@ -7,6 +7,13 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
+import {
+  FaGlobe,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGraduationCap,
+} from "react-icons/fa";
 
 function HeroSection({ profile }) {
   return (
@@ -22,9 +29,52 @@ function HeroSection({ profile }) {
               className="rounded-full transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer"
             />
           </div>
+          <h1 className="text-2xl font-bold text-center w-full mt-4 text-white">
+            {profile.name}
+          </h1>
+          <h2 className="text-lg text-center w-full mt-1 text-teal-500">
+            Frontend-leaning Full-Stack Developer
+          </h2>
           <p className="text-gray-300 text-sm lg:text-base my-4 lg:my-6 text-center">
             {profile.bio}
           </p>
+
+          <div className="w-full flex flex-col gap-2 mb-4 text-gray-300 text-sm">
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-teal-500" />
+              <span>{userData.location}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaEnvelope className="text-teal-500" />
+              <a
+                href={`mailto:${userData.email}`}
+                className="hover:text-teal-500 transition-colors"
+              >
+                {userData.email}
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaPhone className="text-teal-500" />
+              <span>{userData.phone}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaGlobe className="text-teal-500" />
+              <a
+                href={userData.portfolio}
+                target="_blank"
+                className="hover:text-teal-500 transition-colors"
+              >
+                {userData.portfolio.replace("https://", "")}
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaGraduationCap className="text-teal-500" />
+              <span>
+                {userData.education.university} - {userData.education.degree} (
+                {userData.education.graduation})
+              </span>
+            </div>
+          </div>
 
           <div className="w-full flex justify-center items-center gap-5">
             <Link
@@ -34,34 +84,42 @@ function HeroSection({ profile }) {
             >
               <BsGithub size={24} />
             </Link>
-            <Link
-              href={userData.linkedIn}
-              target="_blank"
-              className="transition-all text-teal-500 hover:scale-125 duration-300"
-            >
-              <BsLinkedin size={24} />
-            </Link>
-            <Link
-              href={userData.facebook}
-              target="_blank"
-              className="transition-all text-teal-500 hover:scale-125 duration-300"
-            >
-              <FaFacebook size={24} />
-            </Link>
-            <Link
-              href={userData.leetcode}
-              target="_blank"
-              className="transition-all text-teal-500 hover:scale-125 duration-300"
-            >
-              <SiLeetcode size={24} />
-            </Link>
-            <Link
-              href={userData.twitter}
-              target="_blank"
-              className="transition-all text-teal-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={24} />
-            </Link>
+            {userData.linkedIn && (
+              <Link
+                href={userData.linkedIn}
+                target="_blank"
+                className="transition-all text-teal-500 hover:scale-125 duration-300"
+              >
+                <BsLinkedin size={24} />
+              </Link>
+            )}
+            {userData.facebook && (
+              <Link
+                href={userData.facebook}
+                target="_blank"
+                className="transition-all text-teal-500 hover:scale-125 duration-300"
+              >
+                <FaFacebook size={24} />
+              </Link>
+            )}
+            {userData.leetcode && (
+              <Link
+                href={userData.leetcode}
+                target="_blank"
+                className="transition-all text-teal-500 hover:scale-125 duration-300"
+              >
+                <SiLeetcode size={24} />
+              </Link>
+            )}
+            {userData.twitter && (
+              <Link
+                href={userData.twitter}
+                target="_blank"
+                className="transition-all text-teal-500 hover:scale-125 duration-300"
+              >
+                <FaTwitterSquare size={24} />
+              </Link>
+            )}
           </div>
 
           <div className="w-full justify-center flex items-center gap-3 mt-6">
@@ -94,7 +152,7 @@ function HeroSection({ profile }) {
             <code className="font-mono text-xs md:text-sm lg:text-base">
               <div className="blink">
                 <span className="mr-2 text-pink-400">const</span>
-                <span className="mr-2 text-violet-400">coder</span>
+                <span className="mr-2 text-violet-400">developer</span>
                 <span className="mr-2 text-pink-400">=</span>
                 <span className="text-gray-400">{"{"}</span>
               </div>
@@ -105,25 +163,30 @@ function HeroSection({ profile }) {
                 <span className="text-gray-400">{`',`}</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">company:</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-white">title:</span>
                 <span className="text-gray-400">{`'`}</span>
-                <span className="text-green-400">{profile.company}</span>
+                <span className="text-green-400">
+                  Frontend-leaning Full-Stack Developer
+                </span>
                 <span className="text-gray-400">{`',`}</span>
               </div>
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">location:</span>
                 <span className="text-gray-400">{`'`}</span>
-                <span className="text-green-400">{profile.location}</span>
+                <span className="text-green-400">{userData.location}</span>
+                <span className="text-gray-400">{`',`}</span>
+              </div>
+              <div>
+                <span className="ml-4 lg:ml-8 mr-2 text-white">education:</span>
+                <span className="text-gray-400">{`'`}</span>
+                <span className="text-green-400">
+                  {userData.education.university}
+                </span>
                 <span className="text-gray-400">{`',`}</span>
               </div>
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">followers:</span>
                 <span className="text-orange-400">{profile.followers}</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">following:</span>
-                <span className="text-orange-400">{profile.following}</span>
                 <span className="text-gray-400">,</span>
               </div>
               <div>
@@ -136,20 +199,22 @@ function HeroSection({ profile }) {
               <div className="ml-4 lg:ml-8 mr-2">
                 <span className=" text-white">skills:</span>
                 <span className="text-gray-400">{`['`}</span>
-                {userData.skills.map((skill, i) => (
+                {userData.skills.slice(0, 8).map((skill, i) => (
                   <>
-                    <span className="text-cyan-400">{skill}</span>
-                    {i !== userData.skills.length - 1 && (
+                    <span key={i} className="text-cyan-400">
+                      {skill}
+                    </span>
+                    {i !== Math.min(userData.skills.length - 1, 7) && (
                       <span className="text-gray-400">{"', '"}</span>
                     )}
                   </>
                 ))}
-                <span className="text-gray-400">{"'],"}</span>
+                <span className="text-gray-400">{"', ...],"}</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">hireable:</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-white">projects:</span>
                 <span className="text-orange-400">
-                  {profile?.hireable?.toString()}
+                  {userData.projects?.length || 2}
                 </span>
                 <span className="text-gray-400">,</span>
               </div>
