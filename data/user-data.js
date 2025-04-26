@@ -5,7 +5,7 @@ export const userData = {
   facebook: "https://www.facebook.com/chuongle.2003",
   instagram: "https://www.instagram.com/dgrberrrh/",
   resume:
-    "https://drive.google.com/file/d/1gJIFvQtmPjsIef0Bmmi9V-J32QTXqojz/view?usp=sharing",
+    "https://drive.google.com/file/d/1OA5ADYQweVim7mnXb6f1tfMYYCCGGvrk/view?usp=sharing",
   linkedIn: "",
   twitter: "",
   stackOverflow: "",
